@@ -9,5 +9,4 @@ class Parser {
 public:
     static AI* parse(int argc, char** argv);
 };
-
 #endif

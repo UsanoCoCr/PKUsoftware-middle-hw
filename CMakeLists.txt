@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.21)
+project(rjsj_middle_hw)
+add_executable(rjsj_middle_hw ./src/main.cpp)
+target_include_directories(rjsj_middle_hw PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_directories(rjsj_middle_hw PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/lib)
+target_link_libraries(rjsj_middle_hw PRIVATE ws2_32)
+target_link_libraries(rjsj_middle_hw PRIVATE rjsjai)
