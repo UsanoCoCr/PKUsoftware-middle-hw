@@ -15,7 +15,7 @@ AI* Parser::parse(int argc, char** argv){
 
     else if (argc==3){//--chat without -o or --output
         if (strcmp(argv[1],"--chat")==0){
-            if (*argv[2]=='-'){
+            if (argv[2][0]=='-'){
                 throw std::runtime_error("Parameter input error");
                 return nullptr;
             }
