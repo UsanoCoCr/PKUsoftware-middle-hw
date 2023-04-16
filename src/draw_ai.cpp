@@ -32,6 +32,11 @@ void draw_AI::showResponse(){
         file.close();
         delete[] dest;
     }
+    else{
+        ai_free(ai_ptr);
+        std::cout<<"Error: "<<ai_status(ai_ptr)<<std::endl;
+        throw std::runtime_error("Error!");
+    }
     ai_free(ai_ptr);
 }
 
