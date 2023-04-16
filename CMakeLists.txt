@@ -4,5 +4,7 @@ add_executable(hw7 ./src/main.cpp ./src/chat_ai.cpp ./src/draw_ai.cpp ./src/math
 target_include_directories(hw7 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/includes)
 target_link_directories(hw7 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/lib)
 target_link_libraries(hw7 PUBLIC rjsjai)
-target_link_libraries(hw7 PUBLIC ws2_32)
+IF (WIN32)
+    target_link_libraries(hw7 PUBLIC ws2_32)
+ENDIF()
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
