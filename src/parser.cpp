@@ -15,6 +15,10 @@ AI* Parser::parse(int argc, char** argv){
 
     else if (argc==3){//--chat without -o or --output
         if (strcmp(argv[1],"--chat")==0){
+            if (*argv[2]=='-'){
+                throw std::runtime_error("Parameter input error");
+                return nullptr;
+            }
             chat_AI* ai=new chat_AI;
             strcpy(ai->msg,argv[2]);
             return ai;
@@ -33,6 +37,10 @@ AI* Parser::parse(int argc, char** argv){
                 ai->havefile=true;
                 strcpy(ai->filename,argv[4]);
             }
+            else{
+                throw std::runtime_error("Parameter input error");
+                return nullptr;
+            }
             return ai;
         }
         else if (strcmp(argv[3],"--chat")==0){
@@ -42,6 +50,10 @@ AI* Parser::parse(int argc, char** argv){
                 ai->havefile=true;
                 strcpy(ai->filename,argv[2]);
             }
+            else{
+                throw std::runtime_error("Parameter input error");
+                return nullptr;
+            }
             return ai;
         }
         else if (strcmp(argv[1],"--draw")==0){
@@ -49,6 +61,10 @@ AI* Parser::parse(int argc, char** argv){
             strcpy(ai->msg,argv[2]);
             if (strcmp(argv[3],"-o")==0 || strcmp(argv[3],"--output")==0)
                 strcpy(ai->filename,argv[4]);
+            else{
+                throw std::runtime_error("Parameter input error");
+                return nullptr;
+            }
             return ai;
         }
         else if (strcmp(argv[3],"--draw")==0){
@@ -56,6 +72,10 @@ AI* Parser::parse(int argc, char** argv){
             strcpy(ai->msg,argv[4]);
             if (strcmp(argv[1],"-o")==0 || strcmp(argv[1],"--output")==0)
                 strcpy(ai->filename,argv[2]);
+            else{
+                throw std::runtime_error("Parameter input error");
+                return nullptr;
+            }
             return ai;
         }
         else if (strcmp(argv[1],"--math")==0){
@@ -63,6 +83,10 @@ AI* Parser::parse(int argc, char** argv){
             strcpy(ai->msg,argv[2]);
             if (strcmp(argv[3],"-o")==0 || strcmp(argv[3],"--output")==0)
                 strcpy(ai->filename,argv[4]);
+            else{
+                throw std::runtime_error("Parameter input error");
+                return nullptr;
+            }
             return ai;
         }
         else if (strcmp(argv[3],"--math")==0){
@@ -70,6 +94,10 @@ AI* Parser::parse(int argc, char** argv){
             strcpy(ai->msg,argv[4]);
             if (strcmp(argv[1],"-o")==0 || strcmp(argv[1],"--output")==0)
                 strcpy(ai->filename,argv[2]);
+            else{
+                throw std::runtime_error("Parameter input error");
+                return nullptr;
+            }
             return ai;
         }
         else{
